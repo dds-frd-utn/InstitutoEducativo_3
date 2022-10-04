@@ -34,7 +34,7 @@ public class AulaController {
 	}
 
 	@RequestMapping(value = "/aulas/delete/{id}", method = RequestMethod.DELETE, produces = "application/json")
-	public String deleteAula(Long id) {
+	public String deleteAula(@PathVariable Long id) {
 		return aulaService.deleteAula(id);
 	}
 	
