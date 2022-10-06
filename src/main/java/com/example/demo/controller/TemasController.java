@@ -26,16 +26,11 @@ public class TemasController {
 		return temasService.findAllTemas();
 	}
 
-	@RequestMapping(value = "/temas/id/{id}", method = RequestMethod.GET, produces = "application/json")
+	@RequestMapping(value = "/temas/{id}", method = RequestMethod.GET, produces = "application/json")
 	public Optional<Temas> getTemas(@PathVariable("id") Long id) {
 		return temasService.findTemasById(id);
 	}
 	
-	@RequestMapping(value = "/temas/nombre/{nombre}", method = RequestMethod.GET, produces = "application/json")
-	public List<Temas> getTemaLikeTitulo(@PathVariable("nombre") String nombre) {
-	    System.out.println(nombre);
-		return temasService.findLikeNombre("%"+nombre+"%");
-	}
 	
 	@RequestMapping(value = "/temas/add", method = RequestMethod.POST, produces = "application/json")
 	public Temas addTemasTemas(Temas temas) {
@@ -47,7 +42,7 @@ public class TemasController {
 		return temasService.deleteTemas(id);
 	}
 	
-	@RequestMapping(value = "/temas", method = RequestMethod.PUT, produces = "application/json")
+	@RequestMapping(value = "/temas/update/{id}", method = RequestMethod.PUT, produces = "application/json")
 	public String updateTemas(Temas temas) {
 		return temasService.updateTemas(temas);
 	}
